@@ -1,0 +1,10 @@
+<persistence>
+    <persistence-unit name="gamePU">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <jta-data-source>java:jboss/datasources/GameDS</jta-data-source>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+    </persistence-unit>
+</persistence>
