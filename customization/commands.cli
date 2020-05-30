@@ -2,11 +2,11 @@
 batch
 
 # Add PostgresQL driver
-/subsystem=datasources/jdbc-driver=postgres:add(driver-name="postgres",driver-module-name="org.postgresql",driver-class-name=org.postgresql.Driver)
+/subsystem=datasources/jdbc-driver=postgresql:add(driver-name="postgresql",driver-module-name="org.postgresql",driver-class-name=org.postgresql.Driver)
 
 # Add the datasource
 # $$ is replaced with $$ by docker build, I could not find any better way to get the literal text ${env.POSTGRES_URL} in the standalone.xml
-data-source add --name=GameDS --driver-name=postgres --jndi-name=java:jboss/datasources/GameDS --connection-url=$${env.POSTGRES_URL} --user-name=$${env.POSTGRES_USER} --password=$${env.POSTGRES_PASSWORD} --enabled=true
+data-source add --name=GameDS --driver-name=postgresql --jndi-name=java:jboss/datasources/GameDS --connection-url=$${env.POSTGRES_URL} --user-name=$${env.POSTGRES_USER} --password=$${env.POSTGRES_PASSWORD} --enabled=true
 
 # Execute the batch
 run-batch
